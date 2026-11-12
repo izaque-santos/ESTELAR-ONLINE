@@ -1,0 +1,12 @@
+{
+  "appId": "com.izaque.estelaronline",
+  "appName": "Estelar Online",
+  "webDir": "public",
+  "server": {
+    "url": "https://estelar-online.onrender.com/",
+    "cleartext": false,
+    "allowNavigation": [
+      "estelar-online.onrender.com"
+    ]
+  }
+}

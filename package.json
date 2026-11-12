@@ -9,9 +9,14 @@
     "test": "node test/sim.test.js && node test/server.test.js"
   },
   "dependencies": {
+    "@capacitor/android": "^6.2.3",
+    "@capacitor/core": "^6.2.3",
     "ws": "^8.18.0"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.3"
   }
 }
