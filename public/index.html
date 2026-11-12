@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<title>ÓRBITA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game"></div>
+
+<div id="start">
+  <div class="brand">
+    <div class="logo" aria-label="ÓRBITA">
+      <svg viewBox="0 0 120 120" class="orb" aria-hidden="true">
+        <defs><radialGradient id="pl" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#bff6ff"/><stop offset=".45" stop-color="#38e0ff"/><stop offset="1" stop-color="#0b3a6e"/></radialGradient></defs>
+        <circle cx="60" cy="60" r="24" fill="url(#pl)"/>
+        <ellipse cx="60" cy="60" rx="52" ry="17" fill="none" stroke="rgba(255,181,71,.85)" stroke-width="2.2" transform="rotate(-18 60 60)"/>
+        <g class="moon"><circle cx="112" cy="60" r="4.5" fill="#ffd28a"/></g>
+      </svg>
+      <h1>ÓRBITA</h1>
+    </div>
+    <p class="tag">Setor Aurora · minere, negocie e voe com outros pilotos</p>
+  </div>
+  <form class="card" id="entrar" autocomplete="off">
+    <div class="ch"><span class="dot" id="netDot"></span><b>Identificação do piloto</b></div>
+    <label for="nome">Nome</label>
+    <input id="nome" maxlength="16" autocomplete="off" placeholder="Seu nome de piloto" enterkeyhint="go">
+    <label>Cor da nave</label>
+    <div id="cores" role="radiogroup" aria-label="Cor da nave"></div>
+    <button id="jogar" type="submit">DECOLAR</button>
+    <p id="netInfo" class="fine">Conectando ao servidor…</p>
+    <div class="keys"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> voar</span><span><kbd>E</kbd> minerar</span><span>📱 controles na tela</span></div>
+  </form>
+  <small class="ver">protótipo v0.1</small>
+</div>
+
+<div id="hud" hidden>
+  <div id="status" class="panel">
+    <div class="row top"><b id="pName">Piloto</b><span id="net" class="pill">offline</span></div>
+    <div class="stat"><span>Velocidade</span><i><em id="bSpd"></em></i><b id="tSpd">0</b></div>
+    <div class="stat"><span>Casco</span><i><em id="bHull" class="hull"></em></i><b id="tHull">100</b></div>
+    <div class="stat"><span>Energia</span><i><em id="bEn" class="en"></em></i><b id="tEn">100</b></div>
+    <div class="row"><span>Carga</span><span id="pips"></span><b id="tCargo">0/10</b></div>
+    <div class="row"><span>Créditos</span><b id="tCr" class="cr">0</b></div>
+  </div>
+  <div id="obj" class="panel"><small id="objStep">OBJETIVO</small><span id="objTxt"></span></div>
+  <div id="online" class="panel"><small>NO SETOR <b id="nOn">1</b></small><ul id="lista"></ul></div>
+  <div id="help" class="panel">
+    <b>Controles</b>
+    <div><kbd>W</kbd><kbd>S</kbd> acelerar / frear</div>
+    <div><kbd>A</kbd><kbd>D</kbd> virar</div>
+    <div><kbd>↑</kbd><kbd>↓</kbd> apontar para cima / baixo</div>
+    <div><kbd>Espaço</kbd><kbd>C</kbd> subir / descer reto</div>
+    <div><kbd>Shift</kbd> turbo (gasta energia)</div>
+    <div><kbd>E</kbd> segurar: minerar · tocar: vender</div>
+    <div>Arraste o mouse: girar câmera · roda: zoom · <kbd>V</kbd> centralizar</div>
+    <div class="fine"><kbd>H</kbd> mostrar / esconder</div>
+  </div>
+  <div id="marker"><div class="arrow"></div><span id="mkTxt"></span></div>
+  <div id="toast"></div>
+  <div id="flash"></div>
+
+  <div id="touch">
+    <div id="stick"><div id="knob"></div></div>
+    <div id="btns">
+      <button data-k="up" class="sm">▲</button>
+      <button data-k="act" class="act">AÇÃO</button>
+      <button data-k="dn" class="sm">▼</button>
+      <button data-k="boost" class="bst">TURBO</button>
+      <button data-k="thr" class="thr">ACELERAR</button>
+      <button data-k="brk" class="brk">FREAR</button>
+    </div>
+    <div id="tTop"><button id="bCam" aria-label="Câmera">CÂM</button><button id="bHelp" aria-label="Ajuda">?</button></div>
+  </div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="shared/sim.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
